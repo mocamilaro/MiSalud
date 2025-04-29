@@ -20,16 +20,16 @@
                     <div class="illustration"></div>
                 </div>
                 <img class="image" src="https://c.animaapp.com/47gfdr1M/img/image-33@2x.png" />
-            </div>
-            <div class="overlap-group">
+            
 
-                <!-- Formulario -->
+                 <!-- Formulario -->
                 <div class="search-form-container">
                     <form method="post">
                         <input type="text" class="search-input" asp-for="Filtro.Paciente.Cedula" placeholder="Buscar por cédula">
                         <button type="submit" class="search-button" asp-page-handler="Buscar">Buscar</button>
                     </form>
                 </div>
+            </div>
 
                 <!-- Mensaje de alerta -->
                 @if (Model.Actual == null)
@@ -38,79 +38,81 @@
                 }
                 else
                 {
+            
                     <div class="alert-success">Paciente encontrado.</div>
+            
+                    <div class="overlap-group">
+                        <div class="card-grid">
+                            <div class="row">
+                                <div class="note-card">
+                                    <div class="today">Paciente</div>
+                                    <p class="div-2">Nombre: @Model.Actual.Paciente?.Nombre</p>
+                                    <p class="div-2">Cédula: @Model.Actual.Paciente?.Cedula</p>
+                                    <p class="div-2">Dirección: @Model.Actual.Paciente?.Direccion</p>
+                                    <p class="div-2">Teléfono: @Model.Actual.Paciente?.Telefono</p>
+                                </div>
 
-                    <div class="card-grid">
-                        <div class="row">
-                            <div class="note-card">
-                                <div class="today">Paciente</div>
-                                <p class="div-2">Nombre: @Model.Actual.Paciente?.Nombre</p>
-                                <p class="div-2">Cédula: @Model.Actual.Paciente?.Cedula</p>
-                                <p class="div-2">Dirección: @Model.Actual.Paciente?.Direccion</p>
-                                <p class="div-2">Teléfono: @Model.Actual.Paciente?.Telefono</p>
+                                <div class="note-card">
+                                    <p class="div-2">Email: @Model.Actual.Paciente?.Email</p>
+                                    <p class="div-2">Tipo de Sangre: @Model.Actual.Paciente?.TipoSang</p>
+                                    <p class="div-2">Acudiente: @Model.Actual.Paciente?.Acudiente</p>
+                                    <p class="div-2">EPS: @Model.Actual.Paciente?.eps</p>
+                                </div>
                             </div>
 
-                            <div class="note-card">
-                                <p class="div-2">Email: @Model.Actual.Paciente?.Email</p>
-                                <p class="div-2">Tipo de Sangre: @Model.Actual.Paciente?.TipoSang</p>
-                                <p class="div-2">Acudiente: @Model.Actual.Paciente?.Acudiente</p>
-                                <p class="div-2">EPS: @Model.Actual.Paciente?.eps</p>
-                            </div>
-                        </div>
-
-                        <div class="row-2">
-                            <div class="note-card">
-                                <div class="today">Cita previa</div>
-                                @if (Model.Actual.Paciente?.Citas != null && Model.Actual.Paciente.Citas.Any())
-                                {
-                                    var cita = Model.Actual.Paciente.Citas.First();
-                                    <p class="div-2">Fecha: @cita.Fecha.ToString("dd/MM/yyy")</p>
-                                    <p class="div-2">Motivo: @cita.Motivo</p>
-                                    <p class="div-2">Médico: @cita.Medico?.Nombre</p>
-                                }
-                            </div>
-
-                            <div class="note-card">
-                                <div class="today">Diagnóstico</div>
-                                @if (Model.Actual.Diagnosticos != null && Model.Actual.Diagnosticos.Any())
-                                {
-                                    var diag = Model.Actual.Diagnosticos.First();
-                                    <p class="div-2">Descripción: @diag.Descripcion</p>
-                                    <p class="div-2">Fecha: @diag.Fecha.ToString("dd/MM/yyyy")</p>
-                                    <p class="div-2">Médico: @diag.Medico?.Nombre</p>
-                                }
-                            </div>
-                        </div>
-
-                        <div class="row-3">
-                            <div class="note-card">
-                                <div class="today">Tratamiento</div>
-                                @if (Model.Actual.Tratamientos != null && Model.Actual.Tratamientos.Any())
-                                {
-                                    var trat = Model.Actual.Tratamientos.First();
-                                    <p class="div-2">Descripción: @trat.Descripcion</p>
-                                    <p class="div-2">Fecha: @trat.FechaInicio.ToString("dd/MM/yyyy")</p>
-                                }
-                            </div>
-
-                            <div class="note-card">
-                                <div class="today">Fórmula</div>
-                                @if (Model.Actual.Formulas != null && Model.Actual.Formulas.Any())
-                                {
-                                    var formula = Model.Actual.Formulas.First();
-                                    if (formula.Medicamentos != null && formula.Medicamentos.Any())
+                            <div class="row-2">
+                                <div class="note-card">
+                                    <div class="today">Cita previa</div>
+                                    @if (Model.Actual.Paciente?.Citas != null && Model.Actual.Paciente.Citas.Any())
                                     {
-                                        var med = formula.Medicamentos.First();
-                                        <p class="div-2">Medicamento: @med.Nombre</p>
-                                        <p class="div-2">Dosis: @med.Dosis</p>
-                                        <p class="div-2">Frecuencia: @med.Frecuencia</p>
+                                        var cita = Model.Actual.Paciente.Citas.First();
+                                        <p class="div-2">Fecha: @cita.Fecha.ToString("dd/MM/yyy")</p>
+                                        <p class="div-2">Motivo: @cita.Motivo</p>
+                                        <p class="div-2">Médico: @cita.Medico?.Nombre</p>
                                     }
-                                }
+                                </div>
+
+                                <div class="note-card">
+                                    <div class="today">Diagnóstico</div>
+                                    @if (Model.Actual.Diagnosticos != null && Model.Actual.Diagnosticos.Any())
+                                    {
+                                        var diag = Model.Actual.Diagnosticos.First();
+                                        <p class="div-2">Descripción: @diag.Descripcion</p>
+                                        <p class="div-2">Fecha: @diag.Fecha.ToString("dd/MM/yyyy")</p>
+                                        <p class="div-2">Médico: @diag.Medico?.Nombre</p>
+                                    }
+                                </div>
+                            </div>
+
+                            <div class="row-3">
+                                <div class="note-card">
+                                    <div class="today">Tratamiento</div>
+                                    @if (Model.Actual.Tratamientos != null && Model.Actual.Tratamientos.Any())
+                                    {
+                                        var trat = Model.Actual.Tratamientos.First();
+                                        <p class="div-2">Descripción: @trat.Descripcion</p>
+                                        <p class="div-2">Fecha: @trat.FechaInicio.ToString("dd/MM/yyyy")</p>
+                                    }
+                                </div>
+
+                                <div class="note-card">
+                                    <div class="today">Fórmula</div>
+                                    @if (Model.Actual.Formulas != null && Model.Actual.Formulas.Any())
+                                    {
+                                        var formula = Model.Actual.Formulas.First();
+                                        if (formula.Medicamentos != null && formula.Medicamentos.Any())
+                                        {
+                                            var med = formula.Medicamentos.First();
+                                            <p class="div-2">Medicamento: @med.Nombre</p>
+                                            <p class="div-2">Dosis: @med.Dosis</p>
+                                            <p class="div-2">Frecuencia: @med.Frecuencia</p>
+                                        }
+                                    }
+                                </div>
                             </div>
                         </div>
-                    </div>
+                     </div>
                 }
-            </div>
         </div>
     </div>
 </body>
