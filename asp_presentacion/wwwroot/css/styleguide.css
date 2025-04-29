@@ -1,0 +1,20 @@
+:root {
+    --letra: rgba(27, 99, 121, 1);
+    --iconos-botones: rgba(87, 198, 217, 1);
+    --palettewhite: rgba(255, 255, 255, 1);
+    --label-color-light-primary: rgba(0, 0, 0, 1);
+    --inkink-06: rgba(237, 236, 244, 1);
+    --heading-h4-font-family: "Raleway", Helvetica;
+    --heading-h4-font-weight: 700;
+    --heading-h4-font-size: 24px;
+    --heading-h4-letter-spacing: -0.5px;
+    --heading-h4-line-height: 32px;
+    --heading-h4-font-style: normal;
+    --heading-h5-font-family: "Raleway", Helvetica;
+    --heading-h5-font-weight: 700;
+    --heading-h5-font-size: 20px;
+    --heading-h5-letter-spacing: -0.5px;
+    --heading-h5-line-height: 26px;
+    --heading-h5-font-style: normal;
+    --bottom-tabbar: 0px -1px 4px 0px rgba(0, 0, 0, 0.08);
+}
