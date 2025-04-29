@@ -30,18 +30,18 @@
                     </form>
                 </div>
             </div>
-
-                <!-- Mensaje de alerta -->
-                @if (Model.Actual == null)
-                {
-                    <div class="alert-warning">No se encontró un paciente con esa cédula.</div>
-                }
-                else
-                {
+                 <div class="overlap-group">
+                    <!-- Mensaje de alerta -->
+                    @if (Model.Actual == null)
+                    {
+                        <div class="alert-warning">No se encontró un paciente con esa cédula.</div>
+                    }
+                    else
+                    {
             
-                    <div class="alert-success">Paciente encontrado.</div>
+                        <div class="alert-success">Paciente encontrado.</div>
             
-                    <div class="overlap-group">
+                    
                         <div class="card-grid">
                             <div class="row">
                                 <div class="note-card">
@@ -111,8 +111,9 @@
                                 </div>
                             </div>
                         </div>
-                     </div>
-                }
+                     
+                    }
+                 </div>
         </div>
     </div>
 </body>
