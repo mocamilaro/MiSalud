@@ -1,0 +1,571 @@
+﻿
+@page
+@model asp_presentacion.Pages.PacienteModel
+@{
+    ViewData["Title"] = "Gestión de Pacientes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        /* Todos los estilos se mantienen iguales */
+        :root {
+            --letra: rgba(27, 99, 121, 1);
+            --iconos-botones: rgba(87, 198, 217, 1);
+            --palettewhite: rgba(255, 255, 255, 1);
+            --inkink-06: rgba(237, 236, 244, 1);
+            --heading-h5-font-family: "Raleway", Helvetica;
+            --heading-h5-font-weight: 700;
+            --heading-h5-font-size: 20px;
+            --heading-h5-letter-spacing: -0.5px;
+            --heading-h5-line-height: 26px;
+            --heading-h5-font-style: normal;
+            --paragraph-p2-font-family: "Raleway", Helvetica;
+            --paragraph-p2-font-weight: 500;
+            --paragraph-p2-font-size: 14px;
+            --paragraph-p2-letter-spacing: 0px;
+            --paragraph-p2-line-height: 21px;
+            --paragraph-p2-font-style: normal;
+            --m3-body-small-font-family: "Roboto", Helvetica;
+            --m3-body-small-font-weight: 400;
+            --m3-body-small-font-size: 12px;
+            --m3-body-small-letter-spacing: 0.4000000059604645px;
+            --m3-body-small-line-height: 16px;
+            --m3-body-small-font-style: normal;
+            --paragraph-p1-font-family: "Raleway", Helvetica;
+            --paragraph-p1-font-weight: 500;
+            --paragraph-p1-font-size: 16px;
+            --paragraph-p1-letter-spacing: -0.5px;
+            --paragraph-p1-line-height: 26px;
+            --paragraph-p1-font-style: normal;
+            --elevation: 0px 4px 8px 0px rgba(0, 0, 0, 0.16);
+            --m3-schemes-surface-container-high: rgba(236, 230, 240, 1);
+        }
+
+        body {
+            font-family: var(--paragraph-p2-font-family);
+            background-color: var(--inkink-06);
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .element-gestion-de {
+            background-color: var(--palettewhite);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .element-gestion-de .div {
+            background-color: var(--palettewhite);
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .element-gestion-de .overlap {
+            position: relative;
+            width: 24px;
+            height: 24px;
+            margin: 20px 0 0 20px;
+            cursor: pointer;
+        }
+
+        .element-gestion-de .icon-back {
+            width: 24px;
+            height: 24px;
+        }
+
+        .header-container {
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            margin-bottom: 20px;
+        }
+
+        .title {
+            font-family: var(--heading-h5-font-family);
+            font-weight: var(--heading-h5-font-weight);
+            font-size: var(--heading-h5-font-size);
+            color: var(--letra);
+            letter-spacing: var(--heading-h5-letter-spacing);
+            line-height: var(--heading-h5-line-height);
+            margin-left: 16px;
+        }
+
+        /* Contenedor de búsqueda */
+        .element-gestion-de .overlap-group {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            border-radius: 12px;
+            background-color: var(--inkink-06);
+            padding: 24px;
+            box-shadow: var(--elevation);
+        }
+
+        .search-title {
+            font-family: var(--paragraph-p1-font-family);
+            font-weight: var(--paragraph-p1-font-weight);
+            color: var(--letra);
+            font-size: var(--paragraph-p1-font-size);
+            margin-bottom: 10px;
+        }
+
+        .search-description {
+            font-family: var(--paragraph-p2-font-family);
+            font-weight: var(--paragraph-p2-font-weight);
+            color: #4d7b80;
+            font-size: var(--paragraph-p2-font-size);
+            margin-bottom: 20px;
+        }
+
+        /* Campo de texto */
+        .text-field {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .state-layer-wrapper {
+            display: flex;
+            flex-direction: column;
+            height: 56px;
+            border-radius: 4px;
+            border: 2px solid var(--iconos-botones);
+            background-color: var(--palettewhite);
+        }
+
+        .state-layer {
+            display: flex;
+            align-items: center;
+            padding: 4px 16px;
+            height: 100%;
+        }
+
+        .input-text-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+        }
+
+        .label-text-container {
+            display: inline-flex;
+            align-items: center;
+            padding: 0px 4px;
+            position: absolute;
+            top: -12px;
+            left: 10px;
+            background-color: var(--palettewhite);
+        }
+
+        .label-text {
+            font-family: var(--m3-body-small-font-family);
+            font-weight: var(--m3-body-small-font-weight);
+            color: var(--iconos-botones);
+            font-size: var(--m3-body-small-font-size);
+        }
+
+        input[type="text"] {
+            width: 100%;
+            height: 40px;
+            border: none;
+            outline: none;
+            font-family: var(--paragraph-p2-font-family);
+            font-size: var(--paragraph-p2-font-size);
+            color: var(--letra);
+        }
+
+        /* Botones */
+        .button-container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-family: var(--paragraph-p2-font-family);
+            font-size: var(--paragraph-p2-font-size);
+            font-weight: var(--paragraph-p2-font-weight);
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-primary {
+            background-color: var(--iconos-botones);
+            color: var(--palettewhite);
+        }
+
+        .btn-secondary {
+            background-color: #4d7b80;
+            color: var(--palettewhite);
+        }
+
+        .btn-neutral {
+            background-color: #9e9e9e;
+            color: var(--palettewhite);
+        }
+
+        /* Contenedor de resultados */
+        .card-grid {
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: var(--palettewhite);
+            border-radius: 16px;
+            box-shadow: var(--elevation);
+            padding: 24px;
+        }
+
+        .results-title {
+            font-family: var(--paragraph-p1-font-family);
+            font-weight: var(--paragraph-p1-font-weight);
+            color: var(--letra);
+            font-size: var(--paragraph-p1-font-size);
+            margin-bottom: 20px;
+        }
+
+        .alerts {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .alert-success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+        }
+
+        .alert-error {
+            background-color: #ffebee;
+            color: #f44336;
+        }
+
+        /* Tabla de resultados */
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .results-table th, .results-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #edebf4;
+        }
+
+        .results-table th {
+            font-family: var(--paragraph-p2-font-family);
+            font-weight: 700;
+            color: var(--letra);
+            background-color: #f5f5f5;
+        }
+
+        .results-table td {
+            font-family: var(--paragraph-p2-font-family);
+            color: #4d7b80;
+        }
+
+        .results-table tr:hover {
+            background-color: #f9f9f9;
+        }
+
+        .results-table tr.selected {
+            background-color: #e3f2fd;
+        }
+
+        /* Botones de acción */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: var(--paragraph-p2-font-family);
+            font-size: 13px;
+        }
+
+        .edit-button {
+            background-color: var(--iconos-botones);
+            color: white;
+        }
+
+        .delete-button {
+            background-color: #f44336;
+            color: white;
+        }
+
+        /* Cards de opciones */
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            width: 90%;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+
+        .option-card {
+            background-color: var(--palettewhite);
+            padding: 24px 16px;
+            border-radius: 12px;
+            box-shadow: var(--elevation);
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .option-card:hover {
+            box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+        }
+
+        .option-title {
+            font-family: var(--paragraph-p1-font-family);
+            font-weight: 600;
+            color: var(--letra);
+            font-size: var(--paragraph-p1-font-size);
+            margin-bottom: 10px;
+        }
+
+        .option-description {
+            font-family: var(--paragraph-p2-font-family);
+            color: #4d7b80;
+            font-size: var(--paragraph-p2-font-size);
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #4d7b80;
+            font-family: var(--paragraph-p2-font-family);
+        }
+
+        /* Selector de tipo de búsqueda */
+        .search-type-selector {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .search-type-option {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .search-type-option input {
+            margin: 0;
+        }
+
+        .search-type-option label {
+            font-family: var(--paragraph-p2-font-family);
+            color: var(--letra);
+        }
+
+        screen and (max-width: 768px) {
+            .element-gestion-de .overlap-group,
+            .card-grid {
+                width: 95%;
+                padding: 16px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .btn {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .options-grid {
+                grid-template-columns: 1fr;
+                width: 95%;
+            }
+
+            .results-table {
+                overflow-x: auto;
+                display: block;
+            }
+            
+            .search-type-selector {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="element-gestion-de">
+        <div class="div">
+            <!-- Header -->
+            <div class="header-container">
+                <div class="overlap">
+                    <a href="javascript:history.back()">
+                        <img src="https://c.animaapp.com/phneM3MY/img/icon-back-1.svg" alt="Volver" class="icon-back" />
+                    </a>
+                </div>
+                <div class="title">Administración de Pacientes</div>
+            </div>
+            
+            <!-- Search Section -->
+            <div class="overlap-group">
+                <h2 class="search-title">Buscar Paciente</h2>
+                <p class="search-description">Seleccione el tipo de búsqueda y escriba la información del paciente a gestionar</p>
+                
+                <form method="post">
+                    <!-- Tipo de búsqueda -->
+                    <div class="search-type-selector">
+                        <div class="search-type-option">
+                            <input type="radio" id="search-cedula" name="searchType" value="Cedula" checked>
+                            <label for="search-cedula">Por Cédula</label>
+                        </div>
+                        <div class="search-type-option">
+                            <input type="radio" id="search-nombre" name="searchType" value="Nombre">
+                            <label for="search-nombre">Por Nombre</label>
+                        </div>
+                        <div class="search-type-option">
+                            <input type="radio" id="search-email" name="searchType" value="Email">
+                            <label for="search-email">Por Email</label>
+                        </div>
+                        <div class="search-type-option">
+                            <input type="radio" id="search-telefono" name="searchType" value="Telefono">
+                            <label for="search-telefono">Por Teléfono</label>
+                        </div>
+                    </div>
+
+                    <!-- Campo de búsqueda dinámico -->
+                    <div class="text-field">
+                        <div class="state-layer-wrapper">
+                            <div class="state-layer">
+                                <div class="input-text-container">
+                                    <input type="text" id="searchValue" name="searchValue" required>
+                                    <div class="label-text-container">
+                                        <span id="searchLabel" class="label-text">Buscar por cédula</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="button-container">
+                        <button type="submit" class="btn btn-primary" asp-page-handler="Buscar">Buscar</button>
+                        <button type="submit" class="btn btn-secondary" asp-page-handler="BtRefrescar">Ver Todos</button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Results Section -->
+            <div class="card-grid">
+                <h2 class="results-title">Resultados de la búsqueda</h2>
+                
+              
+                
+                @if (Model.Lista != null && Model.Lista.Count > 0)
+                {
+                    <div class="alerts alert-success">
+                        <p>Se encontraron @Model.Lista.Count paciente(s) en el sistema.</p>
+                    </div>
+                    
+                    <div style="overflow-x: auto;">
+                        <table class="results-table">
+                            <thead>
+                                <tr>
+                                    <th>Cédula</th>
+                                    <th>Nombre</th>
+                                    <th>Email</th>
+                                    <th>Teléfono</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var paciente in Model.Lista)
+                                {
+                                    <tr class="@(Model.Actual?.Cedula == paciente.Cedula ? "selected" : "")">
+                                        <td>@paciente.Cedula</td>
+                                        <td>@paciente.Nombre</td>
+                                        <td>@paciente.Email</td>
+                                        <td>@paciente.Telefono</td>
+                                        <td class="action-buttons">
+                                            <form method="post" style="display: inline;">
+                                                <input type="hidden" name="pacienteId" value="@paciente.Cedula" />
+                                                <button type="submit" asp-page-handler="Editar" class="action-button edit-button">Editar</button>
+                                                <button type="submit" asp-page-handler="Eliminar" class="action-button delete-button" 
+                                                        onclick="return confirm('¿Está seguro de eliminar este paciente?');">Eliminar</button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+                else if (Model.Accion == lib_utilidades.Enumerables.Ventanas.Listas)
+                {
+                    <div class="no-results">
+                        <p>No se encontraron pacientes con los criterios de búsqueda.</p>
+                    </div>
+                }
+                
+                <div class="button-container">
+                    <form method="post" style="display: flex; gap: 10px;">
+                        <button type="submit" class="btn btn-neutral" asp-page-handler="BtCancelar">Cancelar</button>
+                        <button type="submit" class="btn btn-secondary" asp-page-handler="BtCerrar">Cerrar</button>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Options Grid -->
+            <div class="options-grid">
+                <div class="option-card">
+                    <div class="option-title">Gestionar paciente</div>
+                    <p class="option-description">Agregar, editar o eliminar información de pacientes</p>
+                </div>
+                
+                <div class="option-card">
+                    <div class="option-title">Gestionar agenda</div>
+                    <p class="option-description">Administrar citas y horarios disponibles</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script para actualizar el label de búsqueda según el tipo seleccionado -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchTypeRadios = document.querySelectorAll('input[name="searchType"]');
+            const searchLabel = document.getElementById('searchLabel');
+            
+            // Función para actualizar el label
+            function updateSearchLabel() {
+                const selectedType = document.querySelector('input[name="searchType"]:checked').value;
+                searchLabel.textContent = `Buscar por ${selectedType.toLowerCase()}`;
+            }
+            
+            // Asignar el evento change a todos los radios
+            searchTypeRadios.forEach(radio => {
+                radio.addEventListener('change', updateSearchLabel);
+            });
+        });
+    </script>
+</body>
+</html>
+```

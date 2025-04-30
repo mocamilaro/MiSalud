@@ -1,0 +1,409 @@
+.element-gestion-de {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+}
+
+    .element-gestion-de .div {
+        background-color: var(--palettewhite);
+        overflow: hidden;
+        width: 375px;
+        height: 812px;
+        position: relative;
+    }
+
+    .element-gestion-de .iphone-x-or-newer {
+        position: absolute;
+        width: 375px;
+        height: 44px;
+        top: 0;
+        left: 0;
+        backdrop-filter: blur(8px) brightness(100%);
+        -webkit-backdrop-filter: blur(8px) brightness(100%);
+    }
+
+    .element-gestion-de .right-side {
+        position: absolute;
+        width: 67px;
+        height: 11px;
+        top: 17px;
+        left: 294px;
+    }
+
+    .element-gestion-de .battery {
+        position: absolute;
+        width: 24px;
+        height: 11px;
+        top: 0;
+        left: 42px;
+    }
+
+    .element-gestion-de .wifi {
+        position: absolute;
+        width: 15px;
+        height: 11px;
+        top: 0;
+        left: 22px;
+    }
+
+    .element-gestion-de .mobile-signal {
+        position: absolute;
+        width: 17px;
+        height: 11px;
+        top: 0;
+        left: 0;
+    }
+
+    .element-gestion-de .left-side {
+        position: absolute;
+        width: 54px;
+        height: 21px;
+        top: 12px;
+        left: 21px;
+        background-image: url(https://c.animaapp.com/phneM3MY/img/time.svg);
+        background-size: 100% 100%;
+    }
+
+    .element-gestion-de .overlap {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 56px;
+        left: 16px;
+        background-image: url(https://c.animaapp.com/phneM3MY/img/icon-back-1.svg);
+        background-size: 100% 100%;
+    }
+
+    .element-gestion-de .icon-back {
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 0;
+        left: 0;
+    }
+
+    .element-gestion-de .overlap-group {
+        position: absolute;
+        width: 343px;
+        height: 113px;
+        top: 104px;
+        left: 16px;
+        border-radius: 12px;
+    }
+
+    .element-gestion-de .horizontal-card {
+        display: flex;
+        width: 343px;
+        height: 113px;
+        align-items: center;
+        gap: 10px;
+        padding: 0px 16px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: var(--inkink-06);
+        border-radius: 12px;
+    }
+
+    .element-gestion-de .your-diet-chart {
+        position: relative;
+        flex: 1;
+        font-family: var(--heading-h5-font-family);
+        font-weight: var(--heading-h5-font-weight);
+        color: var(--letra);
+        font-size: var(--heading-h5-font-size);
+        letter-spacing: var(--heading-h5-letter-spacing);
+        line-height: var(--heading-h5-line-height);
+        font-style: var(--heading-h5-font-style);
+    }
+
+    .element-gestion-de .illustration {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 4px;
+        position: relative;
+        flex: 0 0 auto;
+        margin-top: -1.50px;
+        margin-bottom: -1.50px;
+    }
+
+    .element-gestion-de .image {
+        position: absolute;
+        width: 70px;
+        height: 70px;
+        top: 22px;
+        left: 225px;
+        object-fit: cover;
+    }
+
+    .element-gestion-de .overlap-group-2 {
+        position: absolute;
+        width: 376px;
+        height: 576px;
+        top: 241px;
+        left: 0;
+    }
+
+    .element-gestion-de .note-card {
+        width: 375px;
+        height: 576px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: #edebf4;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 24px 16px;
+        border-radius: 12px;
+        box-shadow: var(--elevation);
+    }
+
+    .element-gestion-de .lorem-ipsum-dolor {
+        position: relative;
+        align-self: stretch;
+        margin-top: -1.00px;
+        font-family: var(--paragraph-p2-font-family);
+        font-weight: var(--paragraph-p2-font-weight);
+        color: #4d7b80;
+        font-size: var(--paragraph-p2-font-size);
+        letter-spacing: var(--paragraph-p2-letter-spacing);
+        line-height: var(--paragraph-p2-line-height);
+        font-style: var(--paragraph-p2-font-style);
+    }
+
+    .element-gestion-de .row {
+        height: 79px;
+        position: absolute;
+        top: 45px;
+        left: 16px;
+        display: flex;
+        width: 343px;
+        align-items: flex-start;
+        gap: 11px;
+    }
+
+    .element-gestion-de .note-card-wrapper {
+        height: 89px;
+        position: relative;
+        margin-bottom: -10.00px;
+        display: flex;
+        width: 343px;
+        align-items: flex-start;
+        gap: 11px;
+    }
+
+    .element-gestion-de .note-card-2 {
+        height: 89px;
+        position: relative;
+        flex: 1;
+        flex-grow: 1;
+        background-color: var(--palettewhite);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 24px 16px;
+        border-radius: 12px;
+        box-shadow: var(--elevation);
+    }
+
+    .element-gestion-de .today {
+        position: relative;
+        align-self: stretch;
+        margin-top: -1.00px;
+        margin-bottom: -10.00px;
+        font-family: "Raleway", Helvetica;
+        font-weight: 500;
+        color: #1b6379;
+        font-size: 20px;
+        letter-spacing: -0.50px;
+        line-height: 26px;
+    }
+
+    .element-gestion-de .text-wrapper {
+        margin-bottom: -39.00px;
+        position: relative;
+        align-self: stretch;
+        font-family: var(--paragraph-p2-font-family);
+        font-weight: var(--paragraph-p2-font-weight);
+        color: #4d7b80;
+        font-size: var(--paragraph-p2-font-size);
+        letter-spacing: var(--paragraph-p2-letter-spacing);
+        line-height: var(--paragraph-p2-line-height);
+        font-style: var(--paragraph-p2-font-style);
+    }
+
+    .element-gestion-de .note-card-3 {
+        width: 343px;
+        height: 79px;
+        position: absolute;
+        top: 171px;
+        left: 17px;
+        background-color: var(--palettewhite);
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 24px 16px;
+        border-radius: 12px;
+        box-shadow: var(--elevation);
+    }
+
+    .element-gestion-de .text-field {
+        display: flex;
+        flex-direction: column;
+        width: 274px;
+        align-items: flex-start;
+        position: absolute;
+        top: 183px;
+        left: 46px;
+        border-radius: 4px 4px 0px 0px;
+    }
+
+    .element-gestion-de .state-layer-wrapper {
+        display: flex;
+        flex-direction: column;
+        height: 56px;
+        align-items: flex-start;
+        gap: 10px;
+        position: relative;
+        align-self: stretch;
+        width: 100%;
+        border-radius: 4px;
+        border: 3px solid;
+        border-color: #57c6d9;
+    }
+
+    .element-gestion-de .state-layer {
+        display: flex;
+        align-items: flex-start;
+        padding: 4px 0px 4px 16px;
+        position: relative;
+        flex: 1;
+        align-self: stretch;
+        width: 100%;
+        flex-grow: 1;
+        border-radius: 4px 4px 0px 0px;
+    }
+
+    .element-gestion-de .content {
+        display: flex;
+        flex-direction: column;
+        height: 48px;
+        align-items: flex-start;
+        justify-content: center;
+        padding: 4px 0px;
+        position: relative;
+        flex: 1;
+        flex-grow: 1;
+    }
+
+    .element-gestion-de .input-text-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        align-self: stretch;
+        width: 100%;
+        flex: 0 0 auto;
+    }
+
+    .element-gestion-de .label-text-container {
+        display: inline-flex;
+        align-items: center;
+        padding: 0px 4px;
+        position: absolute;
+        top: -12px;
+        left: -4px;
+        background-color: #ece6f0;
+    }
+
+    .element-gestion-de .label-text {
+        position: relative;
+        width: fit-content;
+        margin-top: -1.00px;
+        font-family: var(--m3-body-small-font-family);
+        font-weight: var(--m3-body-small-font-weight);
+        color: #57c6d9;
+        font-size: var(--m3-body-small-font-size);
+        letter-spacing: var(--m3-body-small-letter-spacing);
+        line-height: var(--m3-body-small-line-height);
+        white-space: nowrap;
+        font-style: var(--m3-body-small-font-style);
+    }
+
+    .element-gestion-de .card-grid {
+        display: flex;
+        flex-direction: column;
+        width: 375px;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 16px;
+        position: absolute;
+        top: 266px;
+        left: 1px;
+        background-color: var(--inkink-06);
+        border-radius: 16px;
+        overflow-y: scroll;
+    }
+
+        .element-gestion-de .card-grid::-webkit-scrollbar {
+            width: 0;
+            display: none;
+        }
+
+    .element-gestion-de .row-2 {
+        display: flex;
+        height: 79px;
+        align-items: flex-start;
+        gap: 11px;
+        position: relative;
+        align-self: stretch;
+        width: 100%;
+    }
+
+    .element-gestion-de .note-card-4 {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+        padding: 24px 16px;
+        position: relative;
+        flex: 1;
+        align-self: stretch;
+        flex-grow: 1;
+        background-color: var(--palettewhite);
+        border-radius: 12px;
+        box-shadow: var(--elevation);
+    }
+
+    .element-gestion-de .today-2 {
+        position: relative;
+        align-self: stretch;
+        margin-top: -1.00px;
+        font-family: var(--paragraph-p1-font-family);
+        font-weight: var(--paragraph-p1-font-weight);
+        color: #1b6379;
+        font-size: var(--paragraph-p1-font-size);
+        letter-spacing: var(--paragraph-p1-letter-spacing);
+        line-height: var(--paragraph-p1-line-height);
+        font-style: var(--paragraph-p1-font-style);
+    }
+
+    .element-gestion-de .lorem-ipsum-dolor-2 {
+        margin-bottom: -23.00px;
+        position: relative;
+        align-self: stretch;
+        font-family: var(--paragraph-p2-font-family);
+        font-weight: var(--paragraph-p2-font-weight);
+        color: #4d7b80;
+        font-size: var(--paragraph-p2-font-size);
+        letter-spacing: var(--paragraph-p2-letter-spacing);
+        line-height: var(--paragraph-p2-line-height);
+        font-style: var(--paragraph-p2-font-style);
+    }

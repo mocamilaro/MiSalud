@@ -53,6 +53,7 @@ namespace asp_presentacion.Pages
 
                     // Buscar exactamente por la cédula digitada
                     Actual = Lista?.FirstOrDefault(h => h.Paciente?.Cedula == Filtro.Paciente.Cedula);
+                    Actual = Lista?.FirstOrDefault(h => h.Paciente?.Telefono == Filtro.Paciente.Telefono);
 
                     // Limpiar el campo después de buscar
                     Filtro.Paciente.Cedula = "";
