@@ -95,8 +95,15 @@ namespace lib_aplicaciones.Implementaciones
                     condiciones = x => (x.Nombre != null && x.Nombre.Contains(entidad.Nombre!)) ||
                                       (x.Cedula != null && x.Cedula.Contains(entidad.Cedula!)) ||
                                       (x.Email != null && x.Email.Contains(entidad.Email!)) ||
-                                      (x.Telefono != null && x.Telefono.Contains(entidad.Telefono!));
-                                      
+                                      (x.Telefono != null && x.Telefono.Contains(entidad.Telefono!)) ||
+                                      (x.HistoriaClinica != null && x.HistoriaClinica.Diagnosticos != null &&
+                                       x.HistoriaClinica.Diagnosticos.Any(d =>
+                                           d.Descripcion != null &&
+                                           d.Descripcion.Contains(entidad.HistoriaClinica!.Diagnosticos!.First().Descripcion!))) ||
+                                      (x.Citas != null && x.Citas.Any(c =>
+                                           c.Medico != null &&
+                                           (c.Medico.Nombre != null &&
+                                            c.Medico.Nombre.Contains(entidad.Citas!.First().Medico!.Nombre!))));
                     break;
 
                 default:
