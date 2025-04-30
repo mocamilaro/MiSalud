@@ -1,0 +1,74 @@
+﻿@page
+@model asp_presentacion.Pages.PacienteModel
+@{
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="~/css/globalBuscar.css" />
+    <link rel="stylesheet" href="~/css/siteBuscar.css" />
+    <link rel="stylesheet" href="~/css/styleBuscar.css" />
+</head>
+<body>
+    <div class="element-gestion-de" data-model-id="1:10989">
+        <div class="div">
+            <div class="iphone-x-or-newer">
+                <div class="right-side">
+                    <img class="battery" src="https://c.animaapp.com/phneM3MY/img/battery@2x.png" />
+                    <img class="wifi" src="https://c.animaapp.com/phneM3MY/img/wifi.svg" />
+                    <img class="mobile-signal" src="https://c.animaapp.com/phneM3MY/img/mobile-signal.svg" />
+                </div>
+                <div class="left-side"></div>
+            </div>
+            <div class="overlap"><img class="icon-back" src="https://c.animaapp.com/phneM3MY/img/icon-back-1.svg" /></div>
+            <div class="overlap-group">
+                <div class="horizontal-card">
+                    <div class="your-diet-chart">Administración</div>
+                    <div class="illustration"></div>
+                </div>
+                <img class="image" src="https://c.animaapp.com/phneM3MY/img/image-36@2x.png" />
+            </div>
+            <div class="overlap-group-2">
+                <div class="note-card"><div class="lorem-ipsum-dolor"></div></div>
+                <div class="row">
+                    <div class="note-card-wrapper">
+                        <div class="note-card-2">
+                            <p class="today">Digite la cédula, nombre o email del paciente a gestionar</p>
+                            <div class="text-wrapper"></div>
+                        </div>
+                    </div>
+                    <!-- Formulario -->
+                    <div class="search-form-container">
+                        <form method="post">
+                            <input type="text" class="search-input" asp-for="Filtro!.Cedula" placeholder="Buscar por cédula">
+                            <button type="submit" class="search-button" asp-page-handler="Buscar">Buscar</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="note-card-3"></div>
+                <div class="text-field">
+                    <div class="state-layer-wrapper">
+                        <div class="state-layer">
+                            <div class="content">
+                                <div class="input-text-container"></div>
+                                
+                                <div class="label-text-container"><div class="label-text">CC</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-grid">
+                    <div class="row-2">
+                        <div class="note-card-4"><div class="today-2">Gestionar paciente</div></div>
+                        <div class="note-card-4">
+                            <div class="today-2">Gestionar agenda</div>
+                            <div class="lorem-ipsum-dolor-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
